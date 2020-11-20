@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Tab 1 </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,5 +11,74 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-segment [(ngModel)]="segment" ngDefaultControl>
+    <ion-segment-button value="segment1">
+      <ion-label>Segment 1</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="segment2">
+      <ion-label>Segment 2</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="segment3">
+      <ion-label>Segment 3</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ng-container [ngSwitch]="segment">
+    <ng-container *ngSwitchCase="'segment1'">
+      <ion-list-header>
+        <ion-label>Segment 1</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label position="stacked">Test 1</ion-label>
+        <ion-input type="tel" clearInput></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Test 2</ion-label>
+        <ion-input type="tel" clearInput></ion-input>
+      </ion-item>
+
+      <ion-list-header>
+        <ion-label>List header</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-checkbox></ion-checkbox>
+        <ion-label>Checkbox</ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'segment2'">
+      <ion-list-header>
+        <ion-label>Segment 2</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label position="stacked">Test label 1</ion-label>
+        <ion-input type="tel" clearInput></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Test label 2</ion-label>
+        <ion-input type="tel" clearInput></ion-input>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'segment3'">
+      <ion-list-header>
+        <ion-label> Segment 3 </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label position="stacked">Test label 1</ion-label>
+        <ion-input type="tel" clearInput></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Test label 2</ion-label>
+        <ion-input type="tel" clearInput></ion-input>
+      </ion-item>
+    </ng-container>
+  </ng-container>
 </ion-content>
